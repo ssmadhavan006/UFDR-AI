@@ -1,13 +1,5 @@
 # 🕵️‍♂️ UFDR AI — Unified Forensic Data Retrieval and Analysis Assistant
 
-<p align="center">
-  <img src="https://img.shields.io/badge/Status-Active-success" alt="Status">
-  <img src="https://img.shields.io/badge/Version-1.0.0-blue" alt="Version">
-  <img src="https://img.shields.io/badge/License-MIT-green" alt="License">
-  <img src="https://img.shields.io/badge/SIH-2025-orange" alt="SIH 2025">
-</p>
-
----
 
 ## 🎯 Overview
 
@@ -248,6 +240,13 @@ Click **Export PDF** or **Export CSV** for official report generation.
 
 This project is licensed under the **MIT License**.  
 See the [LICENSE](LICENSE) file for details.
+---
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Status-Active-success" alt="Status">
+  <img src="https://img.shields.io/badge/Version-1.0.0-blue" alt="Version">
+  <img src="https://img.shields.io/badge/License-MIT-green" alt="License">
+</p>
 
 ---
 
