@@ -1,0 +1,4 @@
+timestamp,phone,message,crypto_address,media_path
+2024-06-15T10:23:45Z,+1234567890,"Hey, did you receive the payment?",bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh,data/media/qr_001.png
+2024-06-15T11:05:12Z,+1987654321,"Yes, confirmed. Sending you the QR for verification.",,data/media/screenshot_01.png
+2024-06-15T23:59:01Z,+1234567890,"This looks suspicious, let's move to another wallet.",0x742d35Cc6634C0532925a3b844Bc454e4438f44e,

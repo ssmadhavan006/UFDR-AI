@@ -1,0 +1,111 @@
+{
+  "case_id": "CASE-MULTILINGUAL-001",
+  "cover": {
+    "title": "Multilingual UFDR Evidence Analysis Report",
+    "prepared_by": "Digital Forensics Team",
+    "created_utc": "2025-01-11T06:56:00Z",
+    "contact": "forensics@agency.gov"
+  },
+  "messages": [
+    {
+      "message_id": "ml001",
+      "timestamp": "2025-01-10T10:30:45Z",
+      "sender": "Raj Kumar",
+      "text": "Hello, I need to send money urgently. Can you help?"
+    },
+    {
+      "message_id": "ml002", 
+      "timestamp": "2025-01-10T10:32:12Z",
+      "sender": "Priya Sharma",
+      "text": "வணக்கம், உங்களுக்கு எப்படி உதவ முடியும்?"
+    },
+    {
+      "message_id": "ml003",
+      "timestamp": "2025-01-10T10:35:18Z", 
+      "sender": "Raj Kumar",
+      "text": "Send the crypto wallet address please"
+    },
+    {
+      "message_id": "ml004",
+      "timestamp": "2025-01-10T10:36:22Z",
+      "sender": "Priya Sharma", 
+      "text": "இந்த wallet address-க்கு அனுப்பு: bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh"
+    },
+    {
+      "message_id": "ml005",
+      "timestamp": "2025-01-10T10:38:05Z",
+      "sender": "Anonymous User",
+      "text": "Envía el dinero a esta dirección: 0x742d35Cc6634C0532925a3b844Bc454e4438f44e"
+    },
+    {
+      "message_id": "ml006", 
+      "timestamp": "2025-01-10T10:40:33Z",
+      "sender": "Raj Kumar",
+      "text": "What is your phone number for verification?"
+    },
+    {
+      "message_id": "ml007",
+      "timestamp": "2025-01-10T10:42:15Z",
+      "sender": "Priya Sharma",
+      "text": "என் phone number: +91 9876543210. வேகமாக call செய்யுங்கள்"
+    },
+    {
+      "message_id": "ml008",
+      "timestamp": "2025-01-10T10:45:20Z",
+      "sender": "Anonymous User", 
+      "text": "No confíes en estos números: +34 612345678, podrían ser estafadores"
+    },
+    {
+      "message_id": "ml009",
+      "timestamp": "2025-01-10T11:00:12Z",
+      "sender": "Tech Support",
+      "text": "URGENT: Send 0.5 BTC to bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh immediately"
+    },
+    {
+      "message_id": "ml010",
+      "timestamp": "2025-01-10T11:02:45Z", 
+      "sender": "Victim",
+      "text": "சந்தேகமா இருக்கு. இது scam தானே? Police-க்கு complaint குடுக்கலாமா?"
+    },
+    {
+      "message_id": "ml011",
+      "timestamp": "2025-01-10T11:05:33Z",
+      "sender": "Tech Support", 
+      "text": "No, this is legitimate. Transfer funds now or account will be suspended!"
+    },
+    {
+      "message_id": "ml012",
+      "timestamp": "2025-01-10T11:08:17Z",
+      "sender": "Friend",
+      "text": "Cuidado con las estafas de criptomonedas. Nunca envíes dinero a desconocidos."
+    }
+  ],
+  "media_analysis": [
+    {
+      "media_id": "ml-img001",
+      "path": "media/multilingual_qr.png",
+      "sha256": "a1b2c3d4e5f6789",
+      "qr": {
+        "detected": true,
+        "decoded": "bitcoin:bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh"
+      },
+      "linked_messages": ["ml004", "ml009"]
+    }
+  ],
+  "executive_summary": {
+    "bullets": [
+      "Multilingual UFDR file with 12 messages in English, Tamil, and Spanish",
+      "Crypto addresses found in multiple languages with entity preservation",
+      "Phone numbers from India and Spain detected in non-English messages",
+      "Potential scam pattern involving urgent payment requests"
+    ]
+  },
+  "evidence_highlights": [
+    {
+      "title": "Multilingual Crypto Scam Evidence",
+      "why": "Messages in Tamil and Spanish contain suspicious crypto addresses and urgent payment requests",
+      "refs": ["ml004", "ml005", "ml007", "ml008", "ml009", "ml010"],
+      "confidence": 0.95
+    }
+  ]
+}

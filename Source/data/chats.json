@@ -1,0 +1,23 @@
+[
+  {
+    "timestamp": "2024-06-15T10:23:45Z",
+    "phone": "+1234567890",
+    "message": "Hey, did you receive the payment?",
+    "crypto_address": "bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh",
+    "media_path": "data/media/qr_001.png"
+  },
+  {
+    "timestamp": "2024-06-15T11:05:12Z",
+    "phone": "+1987654321",
+    "message": "Yes, confirmed. Sending you the QR for verification.",
+    "crypto_address": "",
+    "media_path": "data/media/screenshot_01.png"
+  },
+  {
+    "timestamp": "2024-06-15T23:59:01Z",
+    "phone": "+1234567890",
+    "message": "This looks suspicious, let's move to another wallet.",
+    "crypto_address": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e",
+    "media_path": ""
+  }
+]

@@ -1,0 +1,347 @@
+{
+  "case_id": "CASE-20250923-001",
+  "cover": {
+    "title": "UFDR Evidence Analysis Report",
+    "prepared_by": "Digital Forensics Team",
+    "created_utc": "2025-09-23T06:15:00Z",
+    "contact": "df-team@agency.gov",
+    "sha256_of_report": null
+  },
+  "chain_of_custody": [
+    {
+      "entry_id": "log-001",
+      "file_id": "file-abc123",
+      "action": "upload",
+      "actor": "analyst_karthick",
+      "timestamp_utc": "2025-09-23T05:00:12Z",
+      "input_ref": null,
+      "output_ref": "uploads/ufdr_sample.json",
+      "sha256": "cb1d2d0fa6af3a5f73a8f0e0f7c8",
+      "details": { "size": "4.2MB", "lines": 10432 },
+      "signature": "hmac:73afcd89"
+    },
+    {
+      "entry_id": "log-002",
+      "file_id": "file-abc123",
+      "action": "parse_lines",
+      "actor": "system",
+      "timestamp_utc": "2025-09-23T05:01:33Z",
+      "input_ref": "uploads/ufdr_sample.json",
+      "output_ref": "parsed/lines.ndjson",
+      "sha256": "e9b3f8fba0ce82f13c4",
+      "details": { "lines_processed": 10432 },
+      "signature": "hmac:21cfa0e1"
+    },
+    {
+      "entry_id": "log-003",
+      "file_id": "file-abc123",
+      "action": "qr_detect",
+      "actor": "system",
+      "timestamp_utc": "2025-09-23T05:05:45Z",
+      "input_ref": "media/qr_001.png",
+      "output_ref": null,
+      "sha256": "e49ac8c23df83c60d3a",
+      "details": { "qr_found": true, "decoded_text": "bitcoin:1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa" },
+      "signature": "hmac:94aeb12d"
+    }
+  ],
+  "messages": [
+    {
+      "message_id": "m001",
+      "timestamp": "2025-09-22T01:15:30Z",
+      "sender": "alex.johnson@email.com",
+      "recipient": "sarah.williams@email.com",
+      "content": "Send the payment to Bitcoin address 1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa tonight. Use the encrypted phone +1-555-0123 for confirmation.",
+      "channel": "WhatsApp",
+      "linked_media": ["media-qr001"]
+    },
+    {
+      "message_id": "m002",
+      "timestamp": "2025-09-22T01:45:22Z",
+      "sender": "sarah.williams@email.com",
+      "recipient": "alex.johnson@email.com",
+      "content": "Got it. Will transfer 2.5 BTC from wallet bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh to that address. My contact number is +44-20-7946-0958.",
+      "channel": "WhatsApp",
+      "linked_media": []
+    },
+    {
+      "message_id": "m003",
+      "timestamp": "2025-09-22T02:30:15Z",
+      "sender": "mike.chen@proton.me",
+      "recipient": "alex.johnson@email.com",
+      "content": "The Ethereum transaction to 0x742d35Cc6634C0532925a3b844Bc454e4438f44e is complete. Transaction hash: 0x1234567890abcdef1234567890abcdef12345678. Call me at +1-212-555-7890.",
+      "channel": "Telegram",
+      "linked_media": []
+    },
+    {
+      "message_id": "m004",
+      "timestamp": "2025-09-22T08:20:45Z",
+      "sender": "alex.johnson@email.com",
+      "recipient": "lisa.parker@secure.net",
+      "content": "Meeting at coordinates 40.7128, -74.0060 at 3 PM. Bring the documents for account number 1234567890. My backup phone is +1-646-555-1234.",
+      "channel": "Signal",
+      "linked_media": ["media-ss001"]
+    },
+    {
+      "message_id": "m005",
+      "timestamp": "2025-09-22T14:12:33Z",
+      "sender": "unknown_user_001",
+      "recipient": "mike.chen@proton.me",
+      "content": "Monero payment sent to address 4AdUndXHHZ6cfufTMvppY6JwXNouMBzSkbLYfpAV5Usx3skxNgYeYTRJ5SA3gfbqGm3fzZwQq2JNiVXh6H3eGcgCUdTQqWA. Amount: 15 XMR. Contact via encrypted channel only.",
+      "channel": "Discord",
+      "linked_media": []
+    },
+    {
+      "message_id": "m006",
+      "timestamp": "2025-09-22T15:45:18Z",
+      "sender": "sarah.williams@email.com",
+      "recipient": "alex.johnson@email.com",
+      "content": "Bank transfer completed to IBAN GB29 NWBK 6016 1331 9268 19. Reference number: REF123456789. My business phone is +44-161-496-0000.",
+      "channel": "WhatsApp",
+      "linked_media": []
+    },
+    {
+      "message_id": "m007",
+      "timestamp": "2025-09-22T20:30:55Z",
+      "sender": "alex.johnson@email.com",
+      "recipient": "john.doe@encrypted.org",
+      "content": "Package delivered to address 123 Main Street, New York, NY 10001. GPS coordinates were 40.7505, -73.9934. Contact customer at +1-555-9876.",
+      "channel": "Telegram",
+      "linked_media": []
+    },
+    {
+      "message_id": "m008",
+      "timestamp": "2025-09-23T01:15:42Z",
+      "sender": "crypto_trader_99",
+      "recipient": "sarah.williams@email.com",
+      "content": "Litecoin address: LTC1qv2k3g7y8j9r3s5t6u7v8w9x0y1z2a3b4c5d6e. Send 50 LTC tonight. My secure line is +33-1-42-86-83-00. Meeting point: 48.8566, 2.3522.",
+      "channel": "Signal",
+      "linked_media": []
+    },
+    {
+      "message_id": "m009",
+      "timestamp": "2025-09-23T03:22:17Z",
+      "sender": "lisa.parker@secure.net",
+      "recipient": "unknown_user_001",
+      "content": "Social Security Number verification needed: 123-45-6789. Driver license: NY1234567890. Phone verification: +1-718-555-4321. Email backup: backup@darknet.onion",
+      "channel": "Discord",
+      "linked_media": []
+    },
+    {
+      "message_id": "m010",
+      "timestamp": "2025-09-23T04:45:30Z",
+      "sender": "mike.chen@proton.me",
+      "recipient": "alex.johnson@email.com",
+      "content": "Credit card payment processed: 4532-1234-5678-9012, exp 12/26, CVV 123. Billing ZIP: 10001. Emergency contact: +1-800-555-0199.",
+      "channel": "WhatsApp",
+      "linked_media": ["media-card001"]
+    },
+    {
+      "message_id": "m011",
+      "timestamp": "2025-09-23T12:15:45Z",
+      "sender": "alex.johnson@email.com",
+      "recipient": "sarah.williams@email.com",
+      "content": "Regular business meeting scheduled. Nothing suspicious here. Just discussing quarterly reports and market analysis.",
+      "channel": "WhatsApp",
+      "linked_media": []
+    },
+    {
+      "message_id": "m012",
+      "timestamp": "2025-09-23T13:30:22Z",
+      "sender": "john.doe@encrypted.org",
+      "recipient": "crypto_trader_99",
+      "content": "Dogecoin wallet: D7Y55RvTXCryFKcwdKYJV8L5H9r3P8j2Fm. Transfer 10000 DOGE by midnight. Confirm via Signal at +49-30-12345678.",
+      "channel": "Telegram",
+      "linked_media": []
+    },
+    {
+      "message_id": "m013",
+      "timestamp": "2025-09-24T02:15:33Z",
+      "sender": "alex.johnson@email.com",
+      "recipient": "new_contact_1@protonmail.com",
+      "content": "First time reaching out. The package with documents is ready for pickup at location 51.5074, -0.1278. Use code RED123. Contact +1-555-9999 after 3 AM only.",
+      "channel": "WhatsApp",
+      "linked_media": []
+    },
+    {
+      "message_id": "m014",
+      "timestamp": "2025-09-24T02:35:44Z",
+      "sender": "alex.johnson@email.com",
+      "recipient": "new_contact_2@tutanota.de",
+      "content": "Another new contact established. Please coordinate with the team. Bitcoin: 3FUpjqYGgzLMwMLhf1Zk8YJmBtdZZCnx8V. Time sensitive operation.",
+      "channel": "Signal",
+      "linked_media": []
+    },
+    {
+      "message_id": "m015",
+      "timestamp": "2025-09-24T02:45:12Z",
+      "sender": "alex.johnson@email.com",
+      "recipient": "sarah.williams@email.com",
+      "content": "Sarah, we need to move fast tonight. The window is closing. Transfer the remaining 5 BTC to bc1qw508d6qejxtdg4y5r3zarvary0c5xw7kv8f3t4. Time: before 4 AM.",
+      "channel": "WhatsApp",
+      "linked_media": []
+    },
+    {
+      "message_id": "m016",
+      "timestamp": "2025-09-24T02:55:18Z",
+      "sender": "new_contact_1@protonmail.com",
+      "recipient": "alex.johnson@email.com",
+      "content": "Package retrieved. Documents secure. Payment processed via 0x8ba1f109551bD432803012645Hac136c9c. Next phase ready.",
+      "channel": "WhatsApp",
+      "linked_media": []
+    },
+    {
+      "message_id": "m017",
+      "timestamp": "2025-09-24T03:10:55Z",
+      "sender": "alex.johnson@email.com",
+      "recipient": "mike.chen@proton.me",
+      "content": "Mike, unusual activity detected. We need to switch protocols immediately. Use backup channels only. Phone: +1-555-BACKUP.",
+      "channel": "Telegram",
+      "linked_media": []
+    },
+    {
+      "message_id": "m018",
+      "timestamp": "2025-09-24T03:25:33Z",
+      "sender": "system_admin_bot",
+      "recipient": "alex.johnson@email.com",
+      "content": "AUTOMATED ALERT: Multiple login attempts detected from IP 192.168.1.100. Security protocol activated. Change passwords immediately.",
+      "channel": "System",
+      "linked_media": []
+    },
+    {
+      "message_id": "m019",
+      "timestamp": "2025-09-24T14:20:45Z",
+      "sender": "regular_friend_bob",
+      "recipient": "alex.johnson@email.com",
+      "content": "Hey Alex, haven't heard from you in days. Everything okay? Want to meet for coffee this weekend? Call me at +1-555-COFFEE.",
+      "channel": "WhatsApp",
+      "linked_media": []
+    },
+    {
+      "message_id": "m020",
+      "timestamp": "2025-09-24T15:30:12Z",
+      "sender": "alex.johnson@email.com",
+      "recipient": "regular_friend_bob",
+      "content": "Sorry Bob, been super busy with work. Rain check on coffee? I'll call you next week.",
+      "channel": "WhatsApp",
+      "linked_media": []
+    },
+    {
+      "message_id": "m021",
+      "timestamp": "2025-09-25T01:45:22Z",
+      "sender": "unknown_whistleblower",
+      "recipient": "alex.johnson@email.com",
+      "content": "They know about the London operation. Dump all crypto holdings now. Meet at coordinates 40.7829, -73.9654 tomorrow 2 AM. Come alone. Destroy this message.",
+      "channel": "ProtonMail",
+      "linked_media": []
+    },
+    {
+      "message_id": "m022",
+      "timestamp": "2025-09-25T02:00:11Z",
+      "sender": "alex.johnson@email.com",
+      "recipient": "sarah.williams@email.com",
+      "content": "Emergency protocols in effect. Liquidate everything: BTC, ETH, XMR. Use the Swiss accounts. Reference number: CH-789456123. Urgent!",
+      "channel": "Signal",
+      "linked_media": ["media-emergency001"]
+    },
+    {
+      "message_id": "m023",
+      "timestamp": "2025-09-25T02:15:44Z",
+      "sender": "alex.johnson@email.com",
+      "recipient": "crypto_exchange_support",
+      "content": "URGENT: Need to withdraw all funds immediately. Account verification: SSN 987-65-4321, DOB: 1985-03-15. Bypass normal limits please.",
+      "channel": "Email",
+      "linked_media": []
+    },
+    {
+      "message_id": "m024",
+      "timestamp": "2025-09-25T03:30:55Z",
+      "sender": "sarah.williams@email.com",
+      "recipient": "alex.johnson@email.com",
+      "content": "Alex, I'm scared. Something doesn't feel right. The usual contacts have gone silent. Should we abort the mission?",
+      "channel": "WhatsApp",
+      "linked_media": []
+    }
+  ],
+  "media_analysis": [
+    {
+      "media_id": "media-qr001",
+      "path": "media/bitcoin_qr.png",
+      "sha256": "e49ac8c23df83c60d3a",
+      "exif": { "created": "2025-09-21T11:15:05Z", "device": "Pixel 7" },
+      "qr": {
+        "detected": true,
+        "decoded": "bitcoin:1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa",
+        "bbox": [[132, 88], [460, 412]]
+      },
+      "clip_tags": [
+        { "label": "crypto wallet", "score": 0.92 },
+        { "label": "QR code", "score": 0.88 }
+      ],
+      "linked_messages": ["m001"]
+    },
+    {
+      "media_id": "media-ss001",
+      "path": "media/meeting_location.png",
+      "sha256": "f23c89af7dcb919be7",
+      "exif": { "created": "2025-09-22T08:15:30Z", "device": "iPhone 14" },
+      "qr": { "detected": false },
+      "clip_tags": [
+        { "label": "map screenshot", "score": 0.89 },
+        { "label": "GPS coordinates", "score": 0.84 }
+      ],
+      "linked_messages": ["m004"]
+    },
+    {
+      "media_id": "media-card001",
+      "path": "media/credit_card_photo.jpg",
+      "sha256": "a1b2c3d4e5f6789012",
+      "exif": { "created": "2025-09-23T04:40:15Z", "device": "Samsung S23" },
+      "qr": { "detected": false },
+      "clip_tags": [
+        { "label": "credit card", "score": 0.95 },
+        { "label": "financial document", "score": 0.87 }
+      ],
+      "linked_messages": ["m010"]
+    },
+    {
+      "media_id": "media-emergency001",
+      "path": "media/emergency_protocol_document.pdf",
+      "sha256": "9f8e7d6c5b4a39281",
+      "exif": { "created": "2025-09-25T01:55:30Z", "device": "Secure Scanner" },
+      "qr": { "detected": false },
+      "clip_tags": [
+        { "label": "emergency document", "score": 0.93 },
+        { "label": "financial protocols", "score": 0.89 },
+        { "label": "encrypted content", "score": 0.85 }
+      ],
+      "linked_messages": ["m022"]
+    }
+  ],
+  "executive_summary": {
+    "bullets": [
+      "UFDR file parsed with 10,432 records; integrity verified via SHA-256.",
+      "Detected one Bitcoin address QR code linked to chat message m123.",
+      "Identified banking app screenshot with possible login credentials."
+    ]
+  },
+  "evidence_highlights": [
+    {
+      "title": "Bitcoin Wallet QR Code",
+      "why": "Links suspect to known wallet address used in fraud investigation.",
+      "refs": ["media-qr001", "m123"],
+      "confidence": 0.92
+    },
+    {
+      "title": "Banking App Screenshot",
+      "why": "May indicate access to victim's account; screenshot timestamp matches transaction time.",
+      "refs": ["media-ss001"],
+      "confidence": 0.87
+    }
+  ],
+  "manifest": [
+    { "file": "uploads/ufdr_sample.json", "sha256": "cb1d2d0fa6af3a5f73a8f0e0f7c8", "role": "raw_evidence" },
+    { "file": "media/qr_001.png", "sha256": "e49ac8c23df83c60d3a", "role": "media_evidence" },
+    { "file": "media/bank_app_screenshot.png", "sha256": "f23c89af7dcb919be7", "role": "media_evidence" }
+  ]
+}
