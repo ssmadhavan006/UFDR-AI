@@ -3,8 +3,7 @@
 
 ## 🎯 Overview
 
-**UFDR AI** is an advanced **AI-powered forensic intelligence system** designed to revolutionize digital investigations by automating the analysis of **Unified Forensic Data Reports (UFDRs)**.  
-Built for **law enforcement**, **intelligence agencies**, and **forensic laboratories**, it transforms unstructured UFDR data into **actionable, explainable, and court-ready insights** — reducing analysis time from **days to minutes**.
+**UFDR AI** is an advanced **AI-powered forensic intelligence system** designed to revolutionize digital investigations by automating the analysis of **Unified Forensic Data Reports (UFDRs)**. Built for **law enforcement**, **intelligence agencies**, and **forensic laboratories**, it transforms unstructured UFDR data into **actionable, explainable, and court-ready insights** — reducing analysis time from **days to minutes**.
 
 ---
 
