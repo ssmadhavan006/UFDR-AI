@@ -18,48 +18,7 @@ Currently, investigators must manually review these records or run basic keyword
 ## 🖼️ System Architecture
 Below is a block diagram representing the layout, data flows, and external integrations of FORENSIS-AI. For a detailed breakdown of layers, review the [Architecture Documentation](docs/architecture.md) and [Database & Schema Reference](docs/schema.md).
 
-```mermaid
-graph TD
-    classDef default fill:#fff,stroke:#333,stroke-width:1px;
-    
-    subgraph Frontend Layer
-        App["Streamlit Web App (app.py)"]
-    end
-    
-    subgraph Analytical & Utilities Layer
-        Translation["Translation Engine (translation.py)"]
-        Highlighter["Entity Highlighter (highlighter.py)"]
-        Anomalies["Anomaly Detector (anomaly_detection.py)"]
-        PDFGen["PDF Generator (pdf_generator.py)"]
-        Custody["Chain of Custody (chain_of_custody.py)"]
-        MediaFor["Media Forensics (media_forensics.py)"]
-    end
-    
-    subgraph Data & Storage Layer
-        ChromaDB[("Chroma Vector DB (chroma_db/)")]
-        SqliteDB[("SQLite Custody DB (chain_of_custody.db)")]
-    end
-    
-    subgraph External & AI APIs
-        GeminiREST["Google Gemini REST API"]
-        HFLocal["HuggingFace Embedding (all-MiniLM-L6-v2)"]
-    end
-    
-    App --> Translation
-    App --> Highlighter
-    App --> Anomalies
-    App --> PDFGen
-    App --> Custody
-    App --> MediaFor
-    
-    Translation --> GeminiREST
-    MediaFor --> GeminiREST
-    
-    App --> ChromaDB
-    Custody --> SqliteDB
-    
-    ChromaDB --> HFLocal
-```
+![System Architecture Diagram](docs/architecture.jpg)
 
 ---
 
