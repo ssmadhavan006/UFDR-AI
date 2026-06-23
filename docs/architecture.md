@@ -7,7 +7,7 @@ This document provides a detailed breakdown of the FORENSIS-AI digital forensics
 ## Architecture Diagram
 Below is the block diagram showing the flow of data and execution paths across system boundaries:
 
-![FORENSIS-AI System Architecture Diagram](architecture.jpg)
+![FORENSIS-AI System Architecture Diagram](architecture-diagram.jpg)
 
 ---
 

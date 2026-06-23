@@ -18,7 +18,7 @@ Currently, investigators must manually review these records or run basic keyword
 ## 🖼️ System Architecture
 Below is a block diagram representing the layout, data flows, and external integrations of FORENSIS-AI. For a detailed breakdown of layers, review the [Architecture Documentation](docs/architecture.md) and [Database & Schema Reference](docs/schema.md).
 
-![System Architecture Diagram](docs/architecture.jpg)
+![System Architecture Diagram](docs/architecture-diagram.jpg)
 
 ---
 
