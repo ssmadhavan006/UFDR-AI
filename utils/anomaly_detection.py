@@ -16,67 +16,10 @@ __all__ = [
     'detect_temporal_anomalies', 
     'analyze_contact_patterns',
     'generate_timeline_html',
-    'generate_contact_graph_html',
-    'log_action',
-    'get_custody_log',
-    'verify_chain_integrity'
+    'generate_contact_graph_html'
 ]
 
-def log_action(file_id: str, action: str, actor: str, 
-               input_ref: Optional[str] = None, 
-               output_ref: Optional[str] = None,
-               details: Optional[Dict] = None,
-               prev_entry_hash: Optional[str] = None,
-               server_key: bytes = b"default_key") -> Dict[str, Any]:
-    """
-    Create a chain of custody log entry with HMAC signature
-    
-    Args:
-        file_id: Unique identifier for the file/evidence
-        action: Action performed (upload, parse_lines, qr_detect, etc.)
-        actor: Who performed the action (user ID, system, etc.)
-        input_ref: Reference to input file/data
-        output_ref: Reference to output file/data  
-        details: Additional metadata
-        prev_entry_hash: Hash of previous entry for chaining
-        server_key: Key for HMAC signature
-        
-    Returns:
-        Dictionary containing the log entry with signature
-    """
-    if details is None:
-        details = {}
-    
-    timestamp = time.time()
-    entry = {
-        "file_id": file_id,
-        "action": action,
-        "actor": actor,
-        "timestamp": timestamp,
-        "input_ref": input_ref,
-        "output_ref": output_ref,
-        "details": details,
-        "prev_entry_hash": prev_entry_hash
-    }
-    
-    # Create HMAC signature
-    entry_str = json.dumps(entry, sort_keys=True)
-    signature = hmac.new(server_key, entry_str.encode(), hashlib.sha256).hexdigest()
-    
-    # Add signature and hash of output
-    entry["signature"] = signature
-    if output_ref:
-        entry["sha256_of_output"] = hashlib.sha256(output_ref.encode()).hexdigest()
-    
-    return entry
 
-def get_custody_log() -> List[Dict[str, Any]]:
-    """Get the current chain of custody log"""
-    return []  # Placeholder for MVP
-
-def verify_chain_integrity(log_entries: List[Dict[str, Any]]) -> bool:
-    """Verify the integrity of chain of custody log"""
-    return True  # Placeholder for MVP
 
 def detect_temporal_anomalies(messages: List[Dict[str, Any]], 
                             threshold_messages_per_hour: int = 50) -> Dict[str, Any]:

@@ -100,7 +100,7 @@ class MultilingualProcessor:
             clean_text, entity_map = self._extract_entities(text)
             
             # Translate using Gemini API
-            result = self.gemini_client.translate_text(clean_text, source_language=src_lang, target_language=dest_lang)
+            result = self.gemini_client.translate_text(clean_text, target_language=dest_lang)
             
             # Restore entities in translated text
             translated_text = self._restore_entities(result.get('translated_text', clean_text), entity_map)

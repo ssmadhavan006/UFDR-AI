@@ -100,6 +100,10 @@ with upload_col1:
                     progress = int((i + 1) * 100 / total_messages)
                     progress_bar.progress(progress)
                     
+                    # Normalize key name to 'content' if 'content' is missing but 'message' or 'text' is present
+                    raw_content = msg.get('content') or msg.get('message') or msg.get('text') or ''
+                    msg['content'] = raw_content
+                    
                     # Clean and normalize message content
                     if 'content' in msg and msg['content']:
                         # First remove any HTML/CSS artifacts
@@ -152,6 +156,7 @@ with upload_col1:
                 status_placeholder.empty()
                 
                 st.success(f"✅ UFDR data processed successfully! ({total_messages} messages)")
+                log_action(action="file_upload", actor="analyst_karthick", source_file=uploaded_file.name, results_count=total_messages, details={"size": uploaded_file.size})
                 
         except Exception as e:
             st.error("Error processing the file. Please check the format and try again.")
@@ -178,6 +183,7 @@ with upload_col2:
             st.session_state.vectorstore = vectorstore
             st.session_state.data_loaded = True
             st.success("✅ Sample UFDR loaded!")
+            log_action(action="file_upload", actor="analyst_karthick", source_file="sample_ufdr.json", results_count=len(data["messages"]), details={"type": "sample_data"})
 
 # Instructions when no data is loaded
 if not st.session_state.data_loaded:
@@ -282,6 +288,10 @@ if st.session_state.data_loaded:
                     ]
                 
                 status.update(label="✅ Analysis complete!", state="complete")
+                log_action(action="behavioral_analysis", actor="analyst_karthick", details={
+                    "messages_analyzed": len(formatted_messages),
+                    "anomalies_detected": len(temporal_anomalies.get("odd_hour_messages", [])) + len(contact_patterns.get("new_contacts", []))
+                })
     
     # Display Behavioral Analysis Results
     if st.session_state.get("temporal_anomalies"):
@@ -457,6 +467,7 @@ if st.session_state.data_loaded:
             
             print(f"After deduplication: {len(unique_results)} unique results")
             st.session_state.analysis_results = unique_results
+            log_action(action="automated_forensic_analysis", actor="analyst_karthick", results_count=len(unique_results))
             
             # Display the analysis results
             st.subheader("📊 Forensic Analysis Results")
@@ -511,6 +522,7 @@ if st.session_state.data_loaded:
                 if st.button("📥 Export Analysis to PDF"):
                     pdf_path = generate_pdf_report(unique_results, "Automated Forensic Analysis")
                     st.success(f"PDF saved: {pdf_path}")
+                    log_action(action="export_pdf", actor="analyst_karthick", results_count=len(unique_results), details={"report_type": "automated_forensic_analysis", "filename": os.path.basename(pdf_path)})
                     with open(pdf_path, "rb") as f:
                         st.download_button(
                             label="⬇️ Download Forensic Report",
@@ -591,6 +603,7 @@ if st.session_state.data_loaded:
                         cleaned_results.append(doc)
                     
                     st.session_state.results = cleaned_results
+                    log_action(action="search_query", actor="analyst_karthick", query=current_query, results_count=len(cleaned_results))
                     
                     # Display results and add to chat history
                     if cleaned_results:
@@ -687,6 +700,7 @@ if st.session_state.data_loaded:
                     ai_suggestions=ai_suggestions_data
                 )
                 st.success(f"PDF saved: {pdf_path}")
+                log_action(action="export_pdf", actor="analyst_karthick", query=current_query, results_count=len(results), details={"report_type": "manual_search_results", "filename": os.path.basename(pdf_path)})
                 with open(pdf_path, "rb") as f:
                     st.download_button(
                         label="⬇️ Download Report",
@@ -706,3 +720,27 @@ st.sidebar.write("""
 4. Or use manual query: "crypto addresses"
 5. Export to PDF and download the report!
 """)
+
+st.sidebar.markdown("---")
+with st.sidebar.expander("🛡️ Chain of Custody Ledger", expanded=False):
+    try:
+        is_valid, msg = verify_chain_integrity()
+        if is_valid:
+            st.success(f"✅ {msg}")
+        else:
+            st.error(f"❌ {msg}")
+            
+        logs = get_custody_log(limit=10)
+        if logs:
+            for log in logs:
+                st.markdown(f"**{log['timestamp'][:19]}**")
+                st.markdown(f"Action: `{log['action']}` by `{log['actor']}`")
+                if log['query']:
+                    st.markdown(f"Query: *\"{log['query']}\"*")
+                if log['results_count'] is not None:
+                    st.markdown(f"Results: `{log['results_count']}`")
+                st.markdown("---")
+        else:
+            st.info("No logs in ledger yet.")
+    except Exception as e:
+        st.error(f"Error reading ledger: {str(e)}")
